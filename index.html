@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ======================================================================
+     SEO / SOCIAL METADATA
+     Replace the bracketed placeholders below with your own information.
+     ====================================================================== -->
+<title>[STUDENT NAME] — [PROGRAM NAME] Student | Pacific States University</title>
+<meta name="description" content="Personal portfolio of [STUDENT NAME], a [PROGRAM NAME] student at Pacific States University, based in [CITY, STATE]. Explore projects, education, skills, and experience.">
+<meta name="author" content="[STUDENT NAME]">
+<link rel="canonical" href="https://[YOUR-USERNAME].github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="[STUDENT NAME] — [PROGRAM NAME] Student">
+<meta property="og:description" content="Personal academic & professional portfolio of [STUDENT NAME], Pacific States University.">
+<meta property="og:url" content="https://[YOUR-USERNAME].github.io/">
+<meta property="og:image" content="assets/profile.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[STUDENT NAME] — [PROGRAM NAME] Student">
+<meta name="twitter:description" content="Personal academic & professional portfolio of [STUDENT NAME], Pacific States University.">
+<meta name="twitter:image" content="assets/profile.jpg">
+
+<!-- Favicon (optional — add assets/favicon.ico or remove this line) -->
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+<!-- Fonts: serif for headlines, sans for body/UI -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons (CDN, no build step required) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+:root{
+  --paper:#FAF8F3;
+  --paper-raised:#FFFFFF;
+  --ink:#1B2A22;
+  --ink-soft:#3F4E45;
+  --slate:#5C6B62;
+  --line:#DEDAD0;
+  --accent:#2F5233;      /* ivy green — academic, not a stock terracotta/violet */
+  --accent-soft:#E7EEE6;
+  --accent-contrast:#F4F8F2;
+  --focus:#1F6FEB;
+  --shadow: 0 1px 2px rgba(27,42,34,.06), 0 8px 24px rgba(27,42,34,.06);
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --maxw: 1120px;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+html[data-theme="dark"]{
+  --paper:#12181A;
+  --paper-raised:#182120;
+  --ink:#EDEFE9;
+  --ink-soft:#C7CDC3;
+  --slate:#93A096;
+  --line:#2B3532;
+  --accent:#6FA97C;
+  --accent-soft:#1D2C22;
+  --accent-contrast:#0F1712;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .25s ease, color .25s ease;
+}
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  color:var(--ink);
+  line-height:1.2;
+  margin:0 0 .5em;
+  font-weight:600;
+}
+p{ margin:0 0 1em; color:var(--ink-soft); max-width:70ch; }
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+img{ max-width:100%; display:block; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; }
+
+:focus-visible{
+  outline:2px solid var(--focus);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 24px;
+}
+.section{
+  padding:96px 0;
+  border-bottom:1px solid var(--line);
+}
+.section:last-of-type{ border-bottom:none; }
+.section-head{
+  margin-bottom:48px;
+  max-width:640px;
+}
+.section-head .kicker{
+  display:block;
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--accent);
+  font-size:1.05rem;
+  margin-bottom:.35em;
+}
+.section-head h2{ font-size:clamp(1.7rem, 2.6vw, 2.3rem); }
+
+/* --------------------------------------------------------------------
+   SKIP LINK / A11Y
+   -------------------------------------------------------------------- */
+.skip-link{
+  position:absolute; left:-999px; top:auto;
+  background:var(--accent); color:#fff; padding:12px 18px;
+  z-index:1000; border-radius:0 0 6px 0;
+}
+.skip-link:focus{ left:0; top:0; }
+
+/* --------------------------------------------------------------------
+   NAVIGATION
+   -------------------------------------------------------------------- */
+.nav{
+  position:sticky; top:0; z-index:500;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:68px;
+}
+.brand{
+  font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--ink);
+  display:flex; align-items:center; gap:10px;
+}
+.brand .mark{
+  width:34px; height:34px; border-radius:50%;
+  background:var(--accent); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.85rem; font-weight:700; font-family:var(--sans);
+}
+.nav-links{ display:flex; gap:28px; align-items:center; }
+.nav-links a{
+  color:var(--ink-soft); font-size:.95rem; font-weight:500;
+  padding:6px 2px; border-bottom:2px solid transparent;
+}
+.nav-links a:hover, .nav-links a:focus-visible{
+  color:var(--ink); text-decoration:none; border-bottom-color:var(--accent);
+}
+.nav-controls{ display:flex; align-items:center; gap:10px; }
+
+.theme-toggle{
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line); background:var(--paper-raised);
+  color:var(--ink); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease;
+}
+.theme-toggle:hover{ background:var(--accent-soft); }
+
+.menu-toggle{
+  display:none;
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line); background:var(--paper-raised); color:var(--ink);
+  cursor:pointer; align-items:center; justify-content:center;
+}
+
+@media (max-width:860px){
+  .nav-links{
+    position:fixed; top:68px; left:0; right:0; bottom:0;
+    background:var(--paper); flex-direction:column; align-items:flex-start;
+    padding:28px 24px; gap:4px; overflow-y:auto;
+    transform:translateX(100%); transition:transform .25s ease;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ width:100%; padding:14px 4px; border-bottom:1px solid var(--line); }
+  .menu-toggle{ display:flex; }
+}
+
+/* --------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------- */
+.hero{
+  padding:88px 0 96px;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:56px;
+  align-items:center;
+}
+.hero-eyebrow{
+  font-family:var(--serif); font-style:italic; color:var(--accent);
+  font-size:1.1rem; margin-bottom:14px;
+}
+.hero h1{
+  font-size:clamp(2.3rem, 5vw, 3.4rem);
+  margin-bottom:.25em;
+}
+.hero .headline{
+  font-size:1.2rem; color:var(--ink-soft); font-weight:500;
+  margin-bottom:18px;
+}
+.hero .intro{ font-size:1.05rem; }
+.meta-row{
+  display:flex; flex-wrap:wrap; gap:16px 24px; margin:22px 0 30px;
+  font-size:.95rem; color:var(--slate);
+}
+.meta-row span{ display:flex; align-items:center; gap:8px; }
+.meta-row i{ color:var(--accent); width:16px; text-align:center; }
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:26px; }
+.btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:13px 24px; border-radius:var(--radius-s);
+  font-weight:600; font-size:.95rem; cursor:pointer;
+  border:1px solid transparent; transition:transform .15s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover{ text-decoration:none; }
+.btn-primary{ background:var(--ink); color:var(--paper); }
+html[data-theme="dark"] .btn-primary{ background:var(--accent); color:#08110A; }
+.btn-primary:hover{ background:var(--accent); color:#fff; }
+html[data-theme="dark"] .btn-primary:hover{ background:#7FBB8B; color:#08110A; }
+.btn-outline{ background:transparent; border-color:var(--ink); color:var(--ink); }
+.btn-outline:hover{ background:var(--ink); color:var(--paper); }
+
+.social-row{ display:flex; gap:14px; }
+.social-row a{
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid var(--line); color:var(--ink-soft);
+  display:flex; align-items:center; justify-content:center;
+  transition:all .18s ease;
+}
+.social-row a:hover{ border-color:var(--accent); color:var(--accent); text-decoration:none; }
+
+.portrait-frame{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:14px;
+  background:var(--paper-raised);
+  box-shadow:var(--shadow);
+  justify-self:center;
+  width:100%;
+  max-width:340px;
+}
+.portrait-frame .photo-wrap{
+  aspect-ratio:4/5;
+  border-radius:6px;
+  overflow:hidden;
+  background:var(--accent-soft);
+  display:flex; align-items:center; justify-content:center;
+}
+.portrait-frame img{ width:100%; height:100%; object-fit:cover; }
+.photo-fallback{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  color:var(--accent); text-align:center; padding:20px;
+}
+.photo-fallback i{ font-size:2.6rem; }
+.photo-fallback span{ font-size:.85rem; color:var(--slate); }
+.portrait-caption{
+  text-align:center; font-size:.85rem; color:var(--slate);
+  margin-top:12px; font-style:italic; font-family:var(--serif);
+}
+
+@media (max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .portrait-frame{ order:-1; max-width:220px; }
+}
+
+/* --------------------------------------------------------------------
+   CARDS / GRID UTILITIES
+   -------------------------------------------------------------------- */
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media (max-width:760px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
+
+.card{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:28px;
+}
+
+/* --------------------------------------------------------------------
+   ABOUT
+   -------------------------------------------------------------------- */
+.about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:48px; }
+.about-list{ display:flex; flex-direction:column; gap:22px; }
+.about-list h4{ font-size:1rem; margin-bottom:6px; color:var(--accent); font-family:var(--sans); font-weight:600; }
+.about-list p{ font-size:.95rem; margin:0; }
+@media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+
+/* --------------------------------------------------------------------
+   TIMELINE (Education / Experience) — a genuine sequence, so a rail is earned
+   -------------------------------------------------------------------- */
+.timeline{ position:relative; padding-left:32px; }
+.timeline::before{
+  content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px;
+  background:var(--line);
+}
+.timeline-item{ position:relative; padding-bottom:40px; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:""; position:absolute; left:-32px; top:6px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--paper); border:2px solid var(--accent);
+}
+.timeline-header{
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 16px;
+  margin-bottom:6px;
+}
+.timeline-header h3{ font-size:1.15rem; margin:0; }
+.timeline-dates{ color:var(--slate); font-size:.9rem; white-space:nowrap; }
+.timeline-org{ color:var(--accent); font-weight:600; font-size:.95rem; margin-bottom:8px; }
+.timeline-item ul{ margin-top:10px; }
+.timeline-item ul li{
+  position:relative; padding-left:18px; margin-bottom:6px;
+  color:var(--ink-soft); font-size:.95rem;
+}
+.timeline-item ul li::before{
+  content:"–"; position:absolute; left:0; color:var(--accent);
+}
+.coursework{
+  margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;
+}
+.coursework span{
+  font-size:.82rem; padding:5px 12px; border-radius:20px;
+  background:var(--accent-soft); color:var(--accent-soft-text, var(--ink-soft));
+  border:1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------
+   SKILLS
+   -------------------------------------------------------------------- */
+.skills-cat{ margin-bottom:32px; }
+.skills-cat:last-child{ margin-bottom:0; }
+.skills-cat h3{ font-size:1.05rem; margin-bottom:14px; }
+.skill-tags{ display:flex; flex-wrap:wrap; gap:10px; }
+.skill-tags span{
+  font-size:.88rem; padding:8px 16px;
+  border:1px solid var(--line); border-radius:var(--radius-s);
+  color:var(--ink-soft); background:var(--paper-raised);
+}
+
+/* --------------------------------------------------------------------
+   PROJECTS
+   -------------------------------------------------------------------- */
+.project-card{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.project-card:hover{ box-shadow:var(--shadow); transform:translateY(-2px); }
+.project-image{
+  aspect-ratio:16/10; background:var(--accent-soft);
+  display:flex; align-items:center; justify-content:center; color:var(--accent);
+  overflow:hidden;
+}
+.project-image img{ width:100%; height:100%; object-fit:cover; }
+.project-body{ padding:22px 24px; display:flex; flex-direction:column; flex:1; }
+.project-body h3{ font-size:1.15rem; margin-bottom:6px; }
+.project-role{ font-size:.85rem; color:var(--slate); margin-bottom:10px; }
+.project-body p{ font-size:.92rem; margin-bottom:14px; }
+.tech-row{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.tech-row span{
+  font-size:.75rem; padding:3px 10px; border-radius:20px;
+  background:var(--accent-soft); color:var(--ink-soft);
+}
+.project-links{ margin-top:auto; display:flex; gap:16px; font-size:.88rem; font-weight:600; }
+.project-links a{ display:flex; align-items:center; gap:6px; }
+
+/* --------------------------------------------------------------------
+   PUBLICATIONS
+   -------------------------------------------------------------------- */
+.pub-item{ padding:24px 0; border-bottom:1px solid var(--line); }
+.pub-item:last-child{ border-bottom:none; padding-bottom:0; }
+.pub-item h3{ font-size:1.05rem; margin-bottom:4px; }
+.pub-authors{ font-size:.9rem; color:var(--ink-soft); margin-bottom:2px; }
+.pub-venue{ font-size:.88rem; color:var(--accent); font-style:italic; margin-bottom:10px; }
+.pub-links{ display:flex; gap:18px; font-size:.85rem; font-weight:600; margin-top:8px; }
+details.abstract{ margin-top:10px; }
+details.abstract summary{
+  cursor:pointer; font-size:.85rem; color:var(--slate); font-weight:600;
+}
+details.abstract p{ font-size:.9rem; margin-top:8px; }
+
+/* --------------------------------------------------------------------
+   CERTS / AWARDS / VOLUNTEER
+   -------------------------------------------------------------------- */
+.simple-card{
+  border:1px solid var(--line); border-radius:var(--radius-m);
+  padding:22px 24px; background:var(--paper-raised);
+}
+.simple-card h3{ font-size:1rem; margin-bottom:4px; }
+.simple-card .org{ font-size:.9rem; color:var(--accent); margin-bottom:4px; }
+.simple-card .date{ font-size:.85rem; color:var(--slate); margin-bottom:8px; }
+.simple-card p{ font-size:.9rem; margin-bottom:0; }
+
+/* --------------------------------------------------------------------
+   CONTACT / RESUME / FOOTER
+   -------------------------------------------------------------------- */
+.contact-wrap{
+  display:flex; flex-direction:column; align-items:flex-start; gap:22px;
+}
+.contact-links{ display:flex; flex-wrap:wrap; gap:16px; }
+.contact-links a{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 18px; border:1px solid var(--line); border-radius:var(--radius-s);
+  color:var(--ink); font-weight:500; font-size:.95rem;
+}
+.contact-links a:hover{ border-color:var(--accent); color:var(--accent); text-decoration:none; }
+
+.resume-box{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;
+  background:var(--accent-soft); border:1px solid var(--line); border-radius:var(--radius-m);
+  padding:32px;
+}
+.resume-box h3{ margin-bottom:6px; }
+.resume-box p{ margin-bottom:0; }
+.resume-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+.site-footer{
+  padding:36px 0; text-align:center; font-size:.85rem; color:var(--slate);
+}
+.site-footer .disclaimer{ margin-top:6px; font-style:italic; }
+
+/* Hidden utility for optional sections students may remove */
+.hidden{ display:none !important; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ==========================================================================
+     NAVIGATION
+     If you delete an optional section further down (Research, Publications,
+     Volunteering, etc.), delete the matching <a> link below too.
+     ========================================================================== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark">IS</span> <!-- Replace "SN" with your initials -->
+      Iskender Shakhterov
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-controls">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="menuIcon"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     HERO SECTION
+     EDIT: name, headline, intro, location, email, links, profile photo
+     ========================================================================== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-eyebrow">Personal Website · Pacific States University</span>
+      <h1>Hello, I'm Iskender Shakhterov</h1>
+      <p class="headline">[Program Name] Student · [e.g. Technology Enthusiast] · [e.g. Future Software Engineer]</p>
+      <p class="intro">
+        [Write 2–3 sentences introducing yourself: what you study, what drives you,
+        and what you're looking for — internships, research, full-time roles, or
+        collaborators. Keep it conversational and specific to you.]
+      </p>
+
+      <div class="meta-row">
+        <span><i class="fa-solid fa-location-dot"></i>[City, State]</span>
+        <span><i class="fa-solid fa-envelope"></i><a href="mailto:you@example.com">you@example.com</a></span>
+        <span><i class="fa-brands fa-linkedin"></i><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span><i class="fa-brands fa-github"></i><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></span>
+      </div>
+
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> View My Work</a>
+        <a href="assets/resume.pdf" class="btn btn-outline" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+      </div>
+
+      <!-- Optional extra social links: delete any you don't use -->
+      <div class="social-row">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="portrait-frame">
+      <div class="photo-wrap">
+        <!-- Replace src with assets/profile.jpg. If the file is missing, the
+             onerror fallback below shows a clean placeholder instead of a
+             broken-image icon. -->
+        <img src="assets/profile.jpg" alt="Portrait of Iskender Shakhterov"
+             onerror="this.onerror=null; this.replaceWith(document.getElementById('photoFallback').content.cloneNode(true));">
+      </div>
+      <p class="portrait-caption">Iskender Shakhterov, [Program Name]</p>
+    </div>
+    <template id="photoFallback">
+      <div class="photo-wrap"><div class="photo-fallback"><i class="fa-solid fa-user"></i><span>Add assets/profile.jpg</span></div></div>
+    </template>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ABOUT
+     EDIT: bio, academic background, interests, goals
+     ========================================================================== -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-head">
+        <span class="kicker">About</span>
+        <h2>A bit about my journey</h2>
+      </div>
+      <p>
+        [Write a short professional biography — 3–5 sentences. Talk about where
+        you're from, what you're studying, and what led you to this field.
+        Keep the tone warm but professional; this is often the first thing a
+        recruiter or professor reads.]
+      </p>
+      <p>
+        [Optional second paragraph: mention a defining project, internship, or
+        experience that shaped your direction, and what you're working toward
+        next — a specific role, industry, or research area.]
+      </p>
+    </div>
+    <div class="about-list">
+      <div>
+        <h4>Academic Background</h4>
+        <p>[e.g. Currently pursuing a B.S. in Computer Science with a minor in Data Analytics.]</p>
+      </div>
+      <div>
+        <h4>Career Interests</h4>
+        <p>[e.g. Backend systems, applied machine learning, and cloud infrastructure.]</p>
+      </div>
+      <div>
+        <h4>Professional Goals</h4>
+        <p>[e.g. Seeking a summer internship in software engineering; long-term interest in graduate research.]</p>
+      </div>
+      <div>
+        <h4>Personal Interests</h4>
+        <p>[e.g. Chess, hiking, open-source contributions, and mentoring first-year students.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EDUCATION
+     EDIT / COPY: duplicate a .timeline-item block for each degree.
+     ========================================================================== -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Education</span>
+      <h2>Academic background</h2>
+    </div>
+    <div class="timeline">
+
+      <!-- COPY THIS BLOCK for each additional degree -->
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <h3>Pacific States University</h3>
+          <span class="timeline-dates">[Start Year] – [Expected Graduation Year]</span>
+        </div>
+        <div class="timeline-org">[Degree, e.g. Bachelor of Science in Computer Science]</div>
+        <p>GPA: [X.XX / 4.0] (optional — remove this line if you'd rather not list it)</p>
+        <ul>
+          <li>[Academic achievement, e.g. Dean's List, 3 semesters]</li>
+          <li>[Relevant honor, scholarship, or leadership role]</li>
+        </ul>
+        <div class="coursework">
+          <span>[Course Name]</span>
+          <span>[Course Name]</span>
+          <span>[Course Name]</span>
+          <span>[Course Name]</span>
+        </div>
+      </div>
+      <!-- END COPY BLOCK -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SKILLS
+     EDIT: add/remove <span> tags inside each category. No fake percentages.
+     ========================================================================== -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Skills</span>
+      <h2>What I work with</h2>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="skills-cat">
+          <h3>Programming</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>JavaScript</span><span>Java</span><span>C++</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="skills-cat">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <div class="skill-tags">
+            <span>AWS</span><span>Docker</span><span>Linux</span><span>Git</span>
+          </div>
+        </div>
+        <div class="skills-cat">
+          <h3>Data &amp; AI/ML</h3>
+          <div class="skill-tags">
+            <span>Pandas</span><span>scikit-learn</span><span>SQL Analytics</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-cat">
+          <h3>Software &amp; Tools</h3>
+          <div class="skill-tags">
+            <span>VS Code</span><span>Figma</span><span>Jira</span>
+          </div>
+        </div>
+        <div class="skills-cat">
+          <h3>Professional Skills</h3>
+          <div class="skill-tags">
+            <span>Communication</span><span>Leadership</span><span>Teamwork</span><span>Problem Solving</span><span>Project Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PROJECTS
+     EDIT / COPY: duplicate the .project-card block for each project.
+     ========================================================================== -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Projects</span>
+      <h2>Selected work</h2>
+    </div>
+    <div class="grid-3">
+
+      <!-- COPY THIS BLOCK for each additional project -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/project-1.jpg" alt="Screenshot of [Project Name]"
+               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-diagram-project\' style=\'font-size:2.2rem\'></i>';">
+        </div>
+        <div class="project-body">
+          <h3>[Project Name]</h3>
+          <p class="project-role">[Your Role] · [Month Year]</p>
+          <p>[One to two sentences describing the problem the project solves and the outcome or impact.]</p>
+          <div class="tech-row">
+            <span>[Tech]</span><span>[Tech]</span><span>[Tech]</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/repo" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="https://your-live-demo-link.com" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- END COPY BLOCK -->
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/project-2.jpg" alt="Screenshot of [Project Name]"
+               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-diagram-project\' style=\'font-size:2.2rem\'></i>';">
+        </div>
+        <div class="project-body">
+          <h3>[Project Name]</h3>
+          <p class="project-role">[Your Role] · [Month Year]</p>
+          <p>[One to two sentences describing the problem the project solves and the outcome or impact.]</p>
+          <div class="tech-row">
+            <span>[Tech]</span><span>[Tech]</span><span>[Tech]</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/repo" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="https://your-live-demo-link.com" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/project-3.jpg" alt="Screenshot of [Project Name]"
+               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-diagram-project\' style=\'font-size:2.2rem\'></i>';">
+        </div>
+        <div class="project-body">
+          <h3>[Project Name]</h3>
+          <p class="project-role">[Your Role] · [Month Year]</p>
+          <p>[One to two sentences describing the problem the project solves and the outcome or impact.]</p>
+          <div class="tech-row">
+            <span>[Tech]</span><span>[Tech]</span><span>[Tech]</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/repo" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="https://your-live-demo-link.com" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EXPERIENCE
+     EDIT / COPY: duplicate a .timeline-item block for each role.
+     ========================================================================== -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Experience</span>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="timeline">
+
+      <!-- COPY THIS BLOCK for each additional role -->
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <h3>[Job Title]</h3>
+          <span class="timeline-dates">[Start Month Year] – [End Month Year / Present]</span>
+        </div>
+        <div class="timeline-org">[Company / Organization Name] · [City, State]</div>
+        <ul>
+          <li>[Accomplishment — quantify where possible, e.g. "Reduced page load time by 30% by..."]</li>
+          <li>[Accomplishment focused on impact, not just a task performed]</li>
+          <li>[Technologies used: e.g. React, PostgreSQL, AWS Lambda]</li>
+        </ul>
+      </div>
+      <!-- END COPY BLOCK -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     RESEARCH (OPTIONAL)
+     If you don't do research, delete this whole <section> and its nav link.
+     ========================================================================== -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Research</span>
+      <h2>Research interests &amp; experience</h2>
+    </div>
+    <p>[Describe your research interests in 1–2 sentences, e.g. "My research interests center on natural language processing and its applications in accessibility tools."]</p>
+    <div class="grid-2" style="margin-top:28px;">
+      <div class="card">
+        <h3 style="font-size:1.05rem;">[Research Project Title]</h3>
+        <p class="project-role">[Role, e.g. Undergraduate Research Assistant] · [Lab / PI Name] · [Dates]</p>
+        <p>[Brief description of the research question, your contribution, and any results.]</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.05rem;">Conferences &amp; Presentations</h3>
+        <p>[e.g. Presented a poster at the 2026 Undergraduate Research Symposium — "Title of Poster."]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PUBLICATIONS (OPTIONAL)
+     If you have no publications, delete this whole <section> and its nav link.
+     Do not invent publication details.
+     ========================================================================== -->
+<section class="section" id="publications">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Publications</span>
+      <h2>Papers &amp; presentations</h2>
+    </div>
+
+    <!-- COPY THIS BLOCK for each additional publication -->
+    <div class="pub-item">
+      <h3>[Paper Title]</h3>
+      <p class="pub-authors">[Author 1, Author 2, Author 3]</p>
+      <p class="pub-venue">[Journal or Conference Name], [Year]</p>
+      <details class="abstract">
+        <summary>Abstract</summary>
+        <p>[Paste the abstract here.]</p>
+      </details>
+      <div class="pub-links">
+        <a href="https://doi.org/xxxx" target="_blank" rel="noopener">DOI</a>
+        <a href="assets/publication-1.pdf" target="_blank" rel="noopener">PDF</a>
+        <a href="https://publisher-link.com" target="_blank" rel="noopener">Publisher Page</a>
+      </div>
+    </div>
+    <!-- END COPY BLOCK -->
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CERTIFICATIONS & AWARDS
+     ========================================================================== -->
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Certifications &amp; Awards</span>
+      <h2>Recognition</h2>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-size:1.1rem; margin-bottom:16px;">Certifications</h3>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="simple-card">
+            <h3>[Certification Name]</h3>
+            <p class="org">[Issuing Organization]</p>
+            <p class="date">[Month Year]</p>
+            <a href="https://credential-link.com" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1.1rem; margin-bottom:16px;">Awards &amp; Achievements</h3>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="simple-card">
+            <h3>[Award Name]</h3>
+            <p class="org">[Awarding Organization]</p>
+            <p class="date">[Month Year]</p>
+            <p>[Short description of the award and why it was given.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     VOLUNTEERING & LEADERSHIP (OPTIONAL)
+     ========================================================================== -->
+<section class="section" id="volunteering">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Volunteering &amp; Leadership</span>
+      <h2>Beyond the classroom</h2>
+    </div>
+    <div class="grid-2">
+      <div class="simple-card">
+        <h3>[Organization / Role, e.g. IEEE Student Chapter — Vice President]</h3>
+        <p class="date">[Dates]</p>
+        <p>[Brief description of responsibilities and impact.]</p>
+      </div>
+      <div class="simple-card">
+        <h3>[Volunteer Activity]</h3>
+        <p class="date">[Dates]</p>
+        <p>[Brief description of the activity and your contribution.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     RESUME
+     ========================================================================== -->
+<section class="section" id="resume">
+  <div class="container">
+    <div class="resume-box">
+      <div>
+        <h3>Resume</h3>
+        <p>Download a full copy of my resume for a detailed overview of my education, skills, and experience.</p>
+      </div>
+      <div class="resume-actions">
+        <a href="assets/resume.pdf" class="btn btn-primary" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+        <a href="assets/resume.pdf" class="btn btn-outline" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i> View Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CONTACT
+     ========================================================================== -->
+<section class="section" id="contact">
+  <div class="container contact-wrap">
+    <div class="section-head" style="margin-bottom:0;">
+      <span class="kicker">Contact</span>
+      <h2>Interested in connecting?</h2>
+      <p>Feel free to reach out regarding internships, employment, research, projects, or collaboration.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:you@example.com"><i class="fa-solid fa-envelope"></i> you@example.com</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+      <!-- Optional: uncomment and edit if you'd like to list a phone number -->
+      <!-- <a href="tel:+10000000000"><i class="fa-solid fa-phone"></i> (000) 000-0000</a> -->
+      <a href="#top"><i class="fa-solid fa-location-dot"></i> [City, State]</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>&copy; <span id="year"></span> Iskender Shakhterov. All rights reserved.</div>
+    <div class="disclaimer">Personal Website | Pacific States University — not an official PSU site.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ------------------------------------------------------------------
+  // THEME (dark / light) — respects system preference on first visit,
+  // then remembers the user's explicit choice in localStorage.
+  // ------------------------------------------------------------------
+  var root = document.documentElement;
+  var themeToggle = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  var STORAGE_KEY = 'psu-portfolio-theme';
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) { /* localStorage unavailable */ }
+
+  if (saved === 'dark' || saved === 'light') {
+    applyTheme(saved);
+  } else {
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  themeToggle.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch(e) { /* ignore */ }
+  });
+
+  // ------------------------------------------------------------------
+  // MOBILE NAVIGATION
+  // ------------------------------------------------------------------
+  var menuToggle = document.getElementById('menuToggle');
+  var menuIcon = document.getElementById('menuIcon');
+  var navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', function(){
+    var isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuIcon.className = 'fa-solid fa-bars';
+    });
+  });
+
+  // ------------------------------------------------------------------
+  // AUTO-HIDE EMPTY NAV ITEMS
+  // If a student deletes an optional <section id="..."> (Research,
+  // Publications, etc.) but forgets to remove its nav link, this hides
+  // the orphaned link automatically instead of pointing to nothing.
+  // ------------------------------------------------------------------
+  navLinks.querySelectorAll('a[href^="#"]').forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    if (id && !document.getElementById(id)) {
+      link.style.display = 'none';
+    }
+  });
+
+  // ------------------------------------------------------------------
+  // FOOTER YEAR
+  // ------------------------------------------------------------------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
